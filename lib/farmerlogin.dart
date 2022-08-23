@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:tarkaribazzar/HomePage.dart';
 import 'package:tarkaribazzar/PasswordRecover.dart';
-import 'package:tarkaribazzar/farmerHomepage.dart';
 import 'package:tarkaribazzar/farmerRegistration.dart';
 
 class farmerlogin extends StatefulWidget {
@@ -179,7 +178,7 @@ class _farmerloginState extends State<farmerlogin> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const FarmerHomePage()),
+                                  builder: (context) => const HomePage()),
                             );
                           },
                         ),
