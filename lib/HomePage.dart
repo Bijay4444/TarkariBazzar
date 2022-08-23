@@ -1,14 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:tarkaribazzar/about.dart';
-import 'package:tarkaribazzar/buyPage/banana.dart';
-import 'package:tarkaribazzar/buyPage/chilly.dart';
-import 'package:tarkaribazzar/buyPage/potato.dart';
-import 'package:tarkaribazzar/page1.dart';
-import 'package:tarkaribazzar/page2.dart';
-import 'package:tarkaribazzar/page3.dart';
-import 'package:tarkaribazzar/page4.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,73 +12,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
-    List<Widget> _pages = [page1(), Page2(), Page3(), Page4()];
-
+    // const IconData shopping_cart = IconData(0xe59c, fontFamily: 'MaterialIcons');
     double maxwidth = MediaQuery.of(context).size.width;
     double maxheight = MediaQuery.of(context).size.height;
-    double boxsize = 0.7 * maxwidth;
     return Scaffold(
-        backgroundColor: Colors.white,
         drawer: Drawer(
-          backgroundColor: Color(0xff01A560),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          child: ListView(
-            children: [
-              UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Color(0xff01A560),
-                  ),
-                  currentAccountPicture: CircleAvatar(
-                    backgroundImage: AssetImage("lib/photos/narayan.jpg"),
-                  ),
-                  otherAccountsPictures: [
-                    CircleAvatar(
-                      backgroundImage:
-                          AssetImage("lib/photos/otherpicture.jpg"),
-                    ),
-                  ],
-                  accountName: Text(
-                    "Narayan Kandel (Consumer)",
-                    style: TextStyle(fontSize: 17),
-                  ),
-                  accountEmail: Text('KandelNarayan82@gmail.com')),
-              Divider(
-                thickness: 3,
-              ),
-              ListTile(
-                title: Text(
-                  'About ',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const about()),
-                  );
-                },
-              ),
-              ListTile(
-                title: Text(
-                  'Contact Us',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-              ListTile(
-                title: Text(
-                  'History',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ],
-          ),
-        ),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20))),
         appBar: AppBar(
-          iconTheme: IconThemeData(color: Color.fromARGB(255, 254, 255, 254)),
           // ignore: prefer_const_literals_to_create_immutables
           actions: [
             IconButton(
@@ -97,27 +34,334 @@ class _HomePageState extends State<HomePage> {
                 icon: Icon(
                   Icons.search,
                   size: 35,
-                  color: Colors.white,
                 ))
           ],
-          elevation: 30,
-          // iconTheme: IconThemeData(color: Colors.green),
-          backgroundColor: Color(0xff01A560),
+          elevation: 0.0,
+          iconTheme: IconThemeData(color: Colors.green),
+          backgroundColor: Colors.white,
           centerTitle: true,
           title: const Text(
             "तरकारी बजार",
-            style: TextStyle(color: Colors.white, fontSize: 32),
+            style: TextStyle(color: Color(0xff01A560), fontSize: 32),
           ),
         ),
-        body: _pages[_currentIndex],
+        body: ListView(
+          
+          children: [
+           Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  height: 0.22 * maxheight,
+                  //width: 0.7*maxwidth,
+        
+                  child: ListView(
+                    
+                    scrollDirection: Axis.horizontal,
+                  
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.7 * maxwidth,
+                          child: const Center(
+                              child: Text(
+                            'Item 1',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.7 * maxwidth,
+                          child: const Center(
+                              child: Text(
+                            'Item 2',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.7 * maxwidth,
+                          child: const Center(
+                              child: Text(
+                            'Item 3',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.7 * maxwidth,
+                          child: const Center(
+                              child: Text(
+                            'Item 4',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 15,),
+                 Text("  Vegetables", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500  ),),
+                 Container(
+                  height: 0.19 * maxheight,
+                  //width: 0.7*maxwidth,
+        
+                  child: ListView(
+                    
+                    scrollDirection: Axis.horizontal,
+                  
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.19 * maxheight,
+                          child: const Center(
+                              child: Text(
+                            'Item 1',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.19 * maxheight,
+                          child: const Center(
+                              child: Text(
+                            'Item 2',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.19 * maxheight,
+                          child: const Center(
+                              child: Text(
+                            'Item 3',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.19 * maxheight,
+                          child: const Center(
+                              child: Text(
+                            'Item 4',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                 SizedBox(height: 15,),
+                Text('  Fruits', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500  ),),
+                Container(
+                  height: 0.19 * maxheight,
+                  //width: 0.7*maxwidth,
+        
+                  child: ListView(
+                    
+                    scrollDirection: Axis.horizontal,
+                  
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.19 * maxheight,
+                          child: const Center(
+                              child: Text(
+                            'Item 1',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.19 * maxheight,
+                          child: const Center(
+                              child: Text(
+                            'Item 2',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.19 * maxheight,
+                          child: const Center(
+                              child: Text(
+                            'Item 3',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.19 * maxheight,
+                          child: const Center(
+                              child: Text(
+                            'Item 4',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                 SizedBox(height: 15,),
+                 Text('  Packages', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500  ),),
+                 Container(
+                  height: 0.19 * maxheight,
+                  //width: 0.7*maxwidth,
+        
+                  child: ListView(
+                    
+                    scrollDirection: Axis.horizontal,
+                  
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.19 * maxheight,
+                          child: const Center(
+                              child: Text(
+                            'Item 1',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.19 * maxheight,
+                          child: const Center(
+                              child: Text(
+                            'Item 2',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.19 * maxheight,
+                          child: const Center(
+                              child: Text(
+                            'Item 3',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(22),
+                            color: Color.fromARGB(151, 206, 202, 206),
+                          ),
+                          width: 0.19 * maxheight,
+                          child: const Center(
+                              child: Text(
+                            'Item 4',
+                            style: TextStyle(fontSize: 18, color: Colors.white),
+                          )),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                 SizedBox(height: 15,),
+               // Text('  Fruits', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500  ),),
+                
+              ],
+             
+            ),
+          ),
+          ]
+        ),
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          unselectedItemColor: Color(0xff01A560),
-          selectedItemColor: Color.fromARGB(255, 6, 108, 65),
-          items: [
+          items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: ('Home'),
+              label: 'Home',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.notifications),
@@ -127,16 +371,10 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.shopping_cart),
               label: 'Cart',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
           ],
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
+          // currentIndex: _selectedIndex,
+          selectedItemColor: Color(0xff01A560),
+          // onTap: _onItemTapped,
         ));
   }
 }

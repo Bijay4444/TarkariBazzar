@@ -13,24 +13,13 @@ class consumerlogin extends StatefulWidget {
 }
 
 class _consumerloginState extends State<consumerlogin> {
-  final phonenumber = TextEditingController();
-
-  @override
-  void dispose() {
-    // Clean up the controller when the widget is removed from the widget tree.
-    // This also removes the _printLatestValue listener.
-    phonenumber.dispose();
-    super.dispose();
-  }
-
   @override
   var isPasswordShow = true;
-  var isLogin = true;
   Widget build(BuildContext context) {
     double maxwidth = MediaQuery.of(context).size.width;
     double maxheight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Color.fromARGB(221, 240, 240, 244),
+       backgroundColor: Color.fromARGB(221, 240, 240, 244),
       body: ListView(
         children: [
           Container(
@@ -71,7 +60,7 @@ class _consumerloginState extends State<consumerlogin> {
                       Radius.circular(20),
                     ),
                   ),
-                  // color: Color.fromARGB(222, 242, 242, 245),
+                 // color: Color.fromARGB(222, 242, 242, 245),
                   child: Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
@@ -85,23 +74,15 @@ class _consumerloginState extends State<consumerlogin> {
                           height: 0.01 * maxheight,
                         ),
                         TextField(
-                          controller: phonenumber,
-                          keyboardType: TextInputType.number,
-                          maxLength: 10,
-                          decoration: InputDecoration(
-                            hintText: '9866570482',
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide:
-                                    BorderSide(color: Color(0xff01A560))),
-                          ),
-                        ),
-                        if (isLogin == false)
-                          Text("    Please Enter a correct phone Number", style: TextStyle(color: Colors.red, fontStyle: FontStyle.italic),),
-                        if (isLogin == false)
-                          SizedBox(
-                            height: 20,
-                          ),
+                            keyboardType: TextInputType.number,
+                            maxLength: 10,
+                            decoration: InputDecoration(
+                              hintText: '9866570482',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide:
+                                      BorderSide(color: Color(0xff01A560))),
+                            )),
                         Text(
                           "    Password ",
                           style: TextStyle(fontSize: 20),
@@ -195,10 +176,10 @@ class _consumerloginState extends State<consumerlogin> {
                           ),
                           onTap: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomePage()),
-                              );
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HomePage()),
+                            );
                           },
                         ),
                       ],
